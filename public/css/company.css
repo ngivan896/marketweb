@@ -1,0 +1,224 @@
+/* 全局重置样式 */
+/* 重置所有元素的样式，避免浏览器自带样式的影响 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 页面主体样式 */
+/* 设置全局主体样式，包括字体、背景和文本颜色 */
+body, h1, h2, h3, p, a {
+  font-family: Georgia, 'Times New Roman', Times, serif; /* 设置全局字体 */
+  background-color: #fff; /* 背景颜色设置为白色 */
+  background-image: url('/image/background.png'); /* 设置背景图片 */
+  background-size: cover; /* 背景图片覆盖整个页面 */
+  background-position: center; /* 背景图片居中 */
+  background-repeat: no-repeat; /* 背景图片不重复 */
+  color: #333; /* 设置文本颜色为深灰色 */
+  line-height: 1.6; /* 设置全局行高，提升可读性 */
+  margin: 0; /* 移除默认的外边距 */
+  background-attachment: fixed; /* 背景图片固定，不随页面滚动 */
+}
+
+/* 动态效果动画 */
+/* 设置渐入动画效果的关键帧 */
+@keyframes fadeIn {
+  0% { opacity: 0; } /* 动画开始时透明度为0 */
+  100% { opacity: 1; } /* 动画结束时透明度为1，完全显示 */
+}
+
+/* 设置左侧滑入动画效果的关键帧 */
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-50px); } /* 动画开始时从左侧移入 */
+  100% { opacity: 1; transform: translateX(0); } /* 动画结束时恢复到原位 */
+}
+
+/* 标题使用渐入效果 */
+/* 为公司简介部分的标题应用渐入效果 */
+#company-section h1, #company-section h2 {
+  animation: fadeIn 2s ease-in-out forwards; /* 2秒内渐入效果 */
+  margin-bottom: 20px; /* 设置标题下方的间距 */
+}
+
+/* 段落使用左侧滑入效果 */
+/* 为公司简介部分的段落应用左侧滑入效果 */
+#company-section p {
+  animation: slideInLeft 1.5s ease-out forwards; /* 1.5秒内从左侧滑入 */
+  margin-bottom: 20px; /* 设置段落下方的间距 */
+}
+
+/* 荣誉证书部分和我们的品牌部分使用淡入效果 */
+/* 设置“荣誉证书”和“我们的品牌”部分的标题使用渐入效果 */
+#awards h3, #brands h3 {
+  animation: fadeIn 1.5s ease-out forwards; /* 1.5秒内渐入效果 */
+  margin-bottom: 20px; /* 设置标题与下方内容的间距 */
+  text-align: center; /* 标题居中对齐 */
+}
+
+/* 专门设置 company-section */
+/* 为公司简介部分设置样式 */
+#company-section {
+  text-align: center; /* 内容居中对齐 */
+  padding: 40px 20px; /* 内边距，确保内容不贴边 */
+  margin-bottom: 40px; /* 设置段落与底部内容的间距 */
+}
+
+/* 荣誉证书部分调整 */
+/* 设置荣誉证书部分的网格布局 */
+.awards-container {
+  margin-top: 40px; /* 与上方内容的间距 */
+  display: flex;
+  justify-content: center; /* 水平居中对齐 */
+  gap: 30px; /* 设置图片之间的间距 */
+  flex-wrap: wrap; /* 当空间不足时自动换行 */
+  padding: 20px; /* 增加内边距 */
+  animation: fadeIn 1.5s ease-out forwards; /* 为整个容器添加淡入效果 */
+}
+
+/* 单个奖项图片样式 */
+.award-item {
+  flex: 1 1 200px; /* 弹性布局，最小宽度200px */
+  margin: 10px; /* 图片之间的间距 */
+  animation: fadeIn 1s ease-out forwards; /* 为每个奖项图片添加淡入效果 */
+}
+
+/* 奖项图片的样式和悬停效果 */
+.award-item img {
+  width: 100%; /* 图片宽度自适应容器 */
+  height: auto; /* 高度自适应 */
+  border-radius: 10px; /* 设置圆角 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 平滑过渡效果 */
+}
+
+/* 当悬停时，图片放大并增加阴影 */
+.award-item img:hover {
+  transform: scale(1.1); /* 悬停时放大图片 */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2); /* 悬停时增加阴影 */
+}
+
+/* 品牌容器样式 */
+/* 设置品牌部分的布局 */
+.brands-container {
+  display: flex;
+  justify-content: space-around; /* LOGO 之间均匀分布 */
+  gap: 50px; /* 设置LOGO之间的间距 */
+  flex-wrap: wrap; /* 当空间不足时自动换行 */
+  padding: 20px; /* 增加内边距 */
+  margin-top: 40px; /* 设置与上方内容的间距 */
+  animation: fadeIn 1.5s ease-out forwards; /* 为整个品牌部分添加渐入效果 */
+}
+
+/* 品牌 LOGO 的样式和悬停效果 */
+.brands-container img {
+  width: 150px; /* LOGO宽度 */
+  height: auto; /* 高度自适应 */
+  transition: transform 0.3s ease; /* LOGO的过渡效果 */
+  animation: fadeIn 1.5s ease-out forwards; /* 为品牌LOGO添加渐入效果 */
+}
+
+/* 悬停时放大 LOGO */
+.brands-container img:hover {
+  transform: scale(1.2); /* 悬停时放大LOGO */
+}
+
+/* CTA 按钮样式 */
+/* 设置页面按钮的样式 */
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745; /* 按钮背景色 */
+  color: #fff; /* 按钮文字颜色 */
+  border-radius: 5px; /* 按钮圆角 */
+  text-decoration: none; /* 去除按钮文字下划线 */
+  transition: background-color 0.3s ease; /* 平滑的背景颜色变化 */
+}
+
+/* 悬停时按钮背景颜色改变 */
+.cta-button:hover {
+  background-color: #218838; /* 悬停时的背景颜色 */
+}
+
+/* 关于我们部分文本样式 */
+/* 设置关于我们部分的段落文本样式 */
+#about p, #brands h3, #brands p {
+  font-size: 1.2em; /* 设置段落字体大小 */
+  line-height: 1.6; /* 设置段落行高 */
+  margin-bottom: 20px; /* 设置段落之间的间距 */
+  text-align: center; /* 段落居中对齐 */
+}
+
+/* 全局调整段落和文字的默认间距 */
+p {
+  margin-bottom: 15px; /* 段落下方间距 */
+  line-height: 1.6; /* 全局行高 */
+}
+
+/* 翻转效果设置 */
+/* 荣誉证书部分调整 */
+/* 使用网格布局展示荣誉证书 */
+.awards-flip-container {
+  display: grid; /* 使用 Grid 布局 */
+  grid-template-columns: repeat(3, 1fr); /* 创建三列布局 */
+  gap: 30px; /* 设置图片之间的间距 */
+  justify-items: center; /* 水平居中每个奖状 */
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* 设置卡片的翻转效果 */
+.flip-card {
+  background-color: transparent;
+  width: 200px;
+  height: 200px;
+  perspective: 1000px; /* 添加透视效果 */
+}
+
+/* 卡片内层的样式 */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* 悬停时反转并平滑动画 */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg) scale(0.4); /* 悬停时反转 */
+  transition: transform 0.8s ease-in-out; /* 平滑的翻转效果 */
+}
+
+/* 卡片的正反面样式 */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* 隐藏背面，确保只有一面可见 */
+}
+
+/* 正面图片样式 */
+.flip-card-front img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* 设置图片圆角 */
+}
+
+/* 反面样式 */
+.flip-card-back {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg); /* 使背面与正面保持180度反转 */
+  border-radius: 10px;
+}
+
+/* 悬停时的文本动画效果 */
+.flip-card-back p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  animation: fadeIn 0.6s ease forwards; /* 悬停时文字淡入 */
+}

@@ -1,0 +1,443 @@
+/* General Reset */
+/* 清除所有元素的默认边距和内边距，确保所有样式一致 */
+* {
+  box-sizing: border-box; /* 包括内边距和边框在元素的总宽度和高度内 */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif; /* 设置全局默认字体为 Arial */
+  background-image: url('/image/background.png'); /* 设置背景图片 */
+  background-size: cover; /* 确保背景图片覆盖整个页面 */
+  background-position: center; /* 背景图片居中显示 */
+  background-repeat: no-repeat; /* 防止背景图片重复 */
+
+  color: #333; /* 设置文本颜色为深灰色 */
+  line-height: 1.6; /* 设置文本行高，提升可读性 */
+  margin: 0; /* 去除页面的默认外边距 */
+}
+
+/* Title Section */
+#title-section {
+  text-align: center;
+  padding: 20px;
+  opacity: 0; /* 初始透明 */
+  animation: fadeInScale 2s ease forwards; /* 应用动画 */
+}
+
+/* 标题文字的缩放和淡入动画 */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0; /* 初始透明 */
+    transform: scale(0.8); /* 缩小 */
+  }
+  100% {
+    opacity: 1; /* 最终完全显示 */
+    transform: scale(1); /* 恢复正常大小 */
+  }
+}
+
+
+/*  文字动画效果*/
+#title-section h1, #title-section h2, #title-section p {
+  background: linear-gradient(90deg, #1f3a93, #ff6347); /* 设置渐变颜色 */
+  background-clip: text; /* 标准背景裁剪 */
+  -webkit-background-clip: text; /* Webkit 兼容性 */
+  -webkit-text-fill-color: transparent; /* Webkit 文字填充透明 */
+}
+
+
+
+/* 标题的左侧滑入动画效果 */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0; /* 初始状态透明 */
+    transform: translateX(-50px); /* 从左侧偏移 50 像素开始 */
+  }
+  100% {
+    opacity: 1; /* 最终完全显示 */
+    transform: translateX(0); /* 滑入至正常位置 */
+  }
+}
+
+/* 标题的右侧滑入动画效果 */
+@keyframes fadeInRight {
+  0% {
+    opacity: 0; /* 初始状态透明 */
+    transform: translateX(50px); /* 从右侧偏移 50 像素开始 */
+  }
+  100% {
+    opacity: 1; /* 最终完全显示 */
+    transform: translateX(0); /* 滑入至正常位置 */
+  }
+}
+
+/* 标题的底部向上渐显动画 */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0; /* 初始状态透明 */
+    transform: translateY(20px); /* 从底部偏移 20 像素开始 */
+  }
+  100% {
+    opacity: 1; /* 最终完全显示 */
+    transform: translateY(0); /* 滑入至正常位置 */
+  }
+}
+
+/* Content Section */
+/* 主内容部分，包含视频和描述+特性部分的布局设置 */
+/* Content Section */
+#content-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* 视频和描述/特性部分的容器设置 */
+#video-description-container {
+  display: flex; /* 使用 Flexbox 使视频和描述/特性部分水平排列 */
+  width: 100%; /* 占据整个页面宽度 */
+  gap: 30px; /* 增加两部分之间的间距 */
+}
+
+/* 保持 video-container 的原有尺寸 */
+#video-container {
+  width: 50%; /* 保持与页面其他部分一致的宽度 */
+  height: auto; /* 高度根据内容自动调整 */
+  padding-right: 20px;
+  overflow: hidden;
+}
+
+#video-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  animation: breathingEffect 5s ease-in-out infinite; /* 添加持续的“呼吸”效果 */
+}
+
+/* 浮动和缩放进入的动画 */
+@keyframes floatAndScale {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9); /* 初始状态下移并缩小 */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* 最终恢复正常大小和位置 */
+  }
+}
+
+/* 持续“呼吸”缩放效果 */
+@keyframes breathingEffect {
+  0%, 100% {
+    transform: scale(1); /* 正常大小 */
+  }
+  50% {
+    transform: scale(1.05); /* 中途稍微放大 */
+  }
+}
+
+
+/* 描述和特性部分的容器样式 */
+#description-feature-container {
+  flex: 1; /* 描述和特性部分也占据 50% 的宽度 */
+  display: flex;
+  flex-direction: column; /* 垂直排列描述和特性部分 */
+  justify-content: space-between; /* 在垂直方向上均匀分配内容 */
+}
+
+/* 描述部分的样式 */
+/* 移除背景色和边框，保留文字的排版和动态效果 */
+.description {
+  margin-bottom: 20px; /* 在描述部分和特性部分之间添加下边距 */
+  line-height: 1.8; /* 增加行高，确保文字不会显得太拥挤 */
+  font-size: 1.1em; /* 增加字体大小，提升可读性 */
+  padding: 0; /* 移除内边距 */
+  background-color: transparent; /* 移除背景色 */
+  border-radius: 0; /* 移除圆角 */
+  animation: fadeInUp 2s ease-out forwards; /* 动态效果：淡入和向上滑动 */
+}
+
+/* 特性部分的样式 */
+.features {
+  display: flex; /* 使用 Flexbox 来水平排列特性项目 */
+  gap: 20px; /* 设置特性项目之间的间距为 20px */
+  justify-content: space-around; /* 水平居中排列 */
+  padding: 10px 0; /* 添加上下的内边距 */
+}
+
+/* 单个特性项目的样式 */
+.feature-item {
+  display: flex;
+  flex-direction: column; /* 垂直排列图标和文字 */
+  align-items: center; /* 图标和文字水平居中对齐 */
+  opacity: 0; /* 初始透明 */
+  animation: fadeInFeature 1.5s ease forwards; /* 动态效果：淡入和滑动 */
+}
+
+/* 设置不同的动画延迟，让特性项依次出现 */
+.feature-item:nth-child(1) {
+  animation-delay: 0.3s; /* 第一个特性项延迟0.3秒 */
+}
+
+.feature-item:nth-child(2) {
+  animation-delay: 0.6s; /* 第二个特性项延迟0.6秒 */
+}
+
+.feature-item:nth-child(3) {
+  animation-delay: 0.9s; /* 第三个特性项延迟0.9秒 */
+}
+
+/* 图标样式 */
+.feature-icon {
+  width: 80px; /* 图标大小 */
+  height: auto; /* 保持宽高比例 */
+  transition: transform 0.3s ease; /* 平滑过渡效果 */
+}
+
+/* 鼠标悬停时图标放大 */
+.feature-icon:hover {
+  transform: scale(1.1); /* 悬停时图标放大 */
+}
+
+/* 特性文字的样式 */
+.feature-item p {
+  margin-top: 10px; /* 图标和文字之间的间距 */
+  font-size: 1em; /* 设置文字大小 */
+  color: #333; /* 设置文字颜色 */
+}
+
+/* 特性部分的淡入和滑动效果 */
+@keyframes fadeInFeature {
+  0% {
+    opacity: 0; /* 初始透明 */
+    transform: translateY(20px); /* 向上滑入 */
+  }
+  100% {
+    opacity: 1; /* 完全显示 */
+    transform: translateY(0); /* 停止滑动，恢复原始位置 */
+  }
+}
+
+/* 特性部分的弹跳进入动画 */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5); /* 初始状态缩小至 50% */
+    opacity: 0; /* 初始状态透明 */
+  }
+  60% {
+    transform: scale(1.2); /* 中途放大到 120% */
+    opacity: 1; /* 中途完全显示 */
+  }
+  100% {
+    transform: scale(1); /* 最终恢复到正常大小 */
+  }
+}
+
+/* Features Section */
+/* 特性部分的整体样式 */
+#features-section {
+  opacity: 0; /* 初始透明，等待动画 */
+  animation: fadeInUp 1.5s ease forwards; /* 添加淡入和向上滑动效果 */
+  animation-delay: 0.3s; /* 设置整个 section 的延迟，让它稍后显示 */
+}
+
+/* 特性部分标题（h3）的动态效果 */
+#features-section h3 {
+  font-size: 1.8em; /* 设置标题的字体大小 */
+  margin-bottom: 10px; /* 设置下边距 */
+  animation: fadeInUp 1.5s ease forwards; /* 标题淡入和滑入效果 */
+  animation-delay: 0.6s; /* 设置延迟，使标题稍后显示 */
+  opacity: 0; /* 初始透明 */
+}
+
+/* 特性部分段落（p）的动态效果 */
+#features-section p {
+  font-size: 1.2em; /* 设置段落的字体大小 */
+  margin-bottom: 10px; /* 设置下边距 */
+  animation: fadeInUp 1.5s ease forwards; /* 段落淡入和滑入效果 */
+  animation-delay: 0.9s; /* 设置延迟，使段落稍后显示 */
+  opacity: 0; /* 初始透明 */
+}
+
+/* 动画：从下向上淡入 */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0; /* 动画开始时透明 */
+    transform: translateY(20px); /* 初始位置向下偏移 20px */
+  }
+  100% {
+    opacity: 1; /* 动画结束时完全显示 */
+    transform: translateY(0); /* 恢复到正常位置 */
+  }
+}
+
+/* 其余特性项目（图标和文字）的动态效果保持不变 */
+.features {
+  display: flex; /* 使用 Flexbox 布局 */
+  gap: 20px; /* 项目之间的间距 */
+  justify-content: space-around; /* 项目水平排列 */
+  padding: 10px 0;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column; /* 垂直排列图标和文字 */
+  align-items: center; /* 图标和文字水平居中 */
+  opacity: 0; /* 初始透明 */
+  animation: fadeInFeature 1.5s ease forwards; /* 图标和文字的淡入效果 */
+  animation-delay: 0.3s; /* 为每个项目设置不同的延迟 */
+}
+
+.feature-icon {
+  width: 80px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.feature-icon:hover {
+  transform: scale(1.1); /* 鼠标悬停时放大 */
+}
+
+.feature-item p {
+  margin-top: 10px;
+  font-size: 0.9em !important; /* 确保该样式被应用 */
+  color: #333;
+}
+
+/* 导航栏样式 */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* 确保导航项和按钮均匀分布 */
+  align-items: center;
+  padding: 20px; /* 导航栏的内边距 */
+  background-color: rgba(255, 255, 255, 0.9); /* 半透明背景 */
+  backdrop-filter: blur(10px); /* 背景模糊效果 */
+  border-radius: 30px; /* 圆角效果 */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+}
+/* Logo Section */
+/* 设置Logo的样式 */
+.logo img {
+  height: 50px; /* 设置Logo高度 */
+  width: auto; /* 宽度自动适应 */
+}
+
+/* Navigation Links Styles */
+/* 设置导航链接部分 */
+.nav-links {
+  display: flex;
+  list-style: none; /* 移除默认的列表样式 */
+  gap: 30px; /* 设置导航链接之间的间距 */
+  margin: 0;
+}
+
+/* 链接样式 */
+.nav-links a {
+  text-decoration: none; /* 移除下划线 */
+  color: #333; /* 设置字体颜色 */
+  font-size: 16px; /* 设置字体大小 */
+  font-weight: 500; /* 设置字体粗细 */
+  padding: 10px 15px; /* 添加内边距 */
+  transition: all 0.3s ease; /* 平滑的过渡效果 */
+  background-color: transparent; /* 确保背景色透明 */
+  border: none; /* 移除边框 */
+}
+
+/* 当鼠标悬停时改变文字颜色和背景 */
+.nav-links a:hover {
+  color: #ff6347; /* 悬停时文字颜色变为橙色 */
+  background-color: rgba(0, 0, 0, 0.05); /* 悬停时背景变为轻微的灰色 */
+  border-radius: 20px; /* 添加圆角效果 */
+}
+
+/* 单个导航项的样式 */
+.nav-links li {
+  padding: 0; /* 移除额外的填充 */
+  margin: 0; /* 移除额外的外边距 */
+}
+
+/* CTA Button Styles */
+/* 设置联系按钮的样式 */
+.cta-button {
+  background-color: #28a745; /* 按钮的背景颜色 */
+  color: white; /* 按钮文字颜色 */
+  padding: 10px 20px; /* 添加内边距 */
+  border-radius: 20px; /* 设置圆角 */
+  text-decoration: none; /* 移除下划线 */
+  font-weight: 600; /* 字体加粗 */
+  transition: all 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 悬停时改变按钮颜色 */
+.cta-button:hover {
+  background-color: #218838; /* 悬停时背景变暗 */
+}
+
+#logo-slider-container {
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+#slider {
+  display: flex;
+  gap: 30px;
+  animation: slide 15s linear infinite;
+}
+
+.slide {
+  flex-shrink: 0;
+  width: 450px;
+  transition: transform 0.3s ease-in-out; /* 使缩放效果有平滑的过渡 */
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out; /* 鼠标悬停时的放大效果 */
+}
+
+/* 鼠标悬停时的放大效果 */
+.slide:hover img {
+  transform: scale(1.2); /* 放大至1.2倍 */
+}
+
+/* 当鼠标悬停在整个 slider 容器上时暂停动画 */
+#logo-slider-container:hover #slider {
+  animation-play-state: paused; /* 暂停动画 */
+}
+
+/* 图片倾斜效果 */
+@keyframes slide {
+  0% {
+    transform: translateX(0) skew(0deg);
+  }
+  50% {
+    transform: translateX(-50%) skew(-3deg); /* 中间时有轻微倾斜 */
+  }
+  100% {
+    transform: translateX(-100%) skew(0deg); /* 恢复原始位置 */
+  }
+}
+
+
+
+/* Description and Features container */
+#description-feature-container {
+  width: 50%; /* 继续使用 50% 的宽度，与视频滑动区域一致 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Features */
+.features {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}

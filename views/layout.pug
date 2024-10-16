@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title #{title}
+    link(rel="stylesheet" href="/css/style.css")
+    block styles
+  body
+    header
+      nav(class="navbar")
+        div(class="logo")
+          a(href="#") 
+            img(src="/image/Logo.png" alt="Logo")
+        ul(class="nav-links")
+          li
+            a(href="/") 解读三文鱼
+          li
+            a(href="/company") 公司简介
+          li
+            a(href="#what") WHAT YOU CAN DO
+          li
+            a(href="#partners") OUR PARTNERS
+          li
+            a(href="#news") AS SEEN ON THE NEWS
+        a(href="#contact" class="cta-button") CONTACT US
+    block content
+    script(src="/js/responsivepage.js")
