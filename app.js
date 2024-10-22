@@ -6,6 +6,9 @@ const app = express();
 // Middleware setup
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(express.static('dist'));
+app.use('/models', express.static('public/models'));
+
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));

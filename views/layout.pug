@@ -5,24 +5,29 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title #{title}
     link(rel="stylesheet" href="/css/style.css")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
     block styles
   body
     header
       nav(class="navbar")
-        div(class="logo")
-          a(href="#") 
-            img(src="/image/Logo.png" alt="Logo")
-        ul(class="nav-links")
+        div(class="logo rotate-container")  <!-- 替换翻转效果的类名 -->
+          a(href="/") 
+          div(class="rotate-card")
+            div.rotate-front
+              img(src="/image/GuiYu.png" alt="Company Logo")
+            div.rotate-back
+              img(src="/image/Logo.png" alt="Back Logo") 
+        div.menu-toggle
+          a(href="#")
+            i(class="fas fa-bars")
+        ul(class="nav-links hidden")
           li
-            a(href="/") 解读三文鱼
+            a(href="#") 首页
           li
-            a(href="/company") 公司简介
+            a(href="#") 产品
           li
-            a(href="#what") WHAT YOU CAN DO
+            a(href="#company-section") 关于我们
           li
-            a(href="#partners") OUR PARTNERS
-          li
-            a(href="#news") AS SEEN ON THE NEWS
-        a(href="#contact" class="cta-button") CONTACT US
+            a(href="#") 联系我们
     block content
     script(src="/js/responsivepage.js")

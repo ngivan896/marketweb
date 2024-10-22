@@ -11,7 +11,7 @@
 body, h1, h2, h3, p, a {
   font-family: Georgia, 'Times New Roman', Times, serif; /* 设置全局字体 */
   background-color: #fff; /* 背景颜色设置为白色 */
-  background-image: url('/image/background.png'); /* 设置背景图片 */
+  /*background-image: url('/image/background.png'); /* 设置背景图片 */
   background-size: cover; /* 背景图片覆盖整个页面 */
   background-position: center; /* 背景图片居中 */
   background-repeat: no-repeat; /* 背景图片不重复 */
@@ -34,18 +34,12 @@ body, h1, h2, h3, p, a {
   100% { opacity: 1; transform: translateX(0); } /* 动画结束时恢复到原位 */
 }
 
-/* 标题使用渐入效果 */
-/* 为公司简介部分的标题应用渐入效果 */
-#company-section h1, #company-section h2 {
-  animation: fadeIn 2s ease-in-out forwards; /* 2秒内渐入效果 */
-  margin-bottom: 20px; /* 设置标题下方的间距 */
-}
-
-/* 段落使用左侧滑入效果 */
-/* 为公司简介部分的段落应用左侧滑入效果 */
-#company-section p {
-  animation: slideInLeft 1.5s ease-out forwards; /* 1.5秒内从左侧滑入 */
-  margin-bottom: 20px; /* 设置段落下方的间距 */
+/*  文字动画效果*/
+#company-section h1, #company-section h2, #company-section p {
+  background: linear-gradient(90deg, #1f3a93, #ff6347); /* 设置渐变颜色 */
+  background-clip: text; /* 标准背景裁剪 */
+  -webkit-background-clip: text; /* Webkit 兼容性 */
+  -webkit-text-fill-color: transparent; /* Webkit 文字填充透明 */
 }
 
 /* 荣誉证书部分和我们的品牌部分使用淡入效果 */
@@ -68,12 +62,13 @@ body, h1, h2, h3, p, a {
 /* 设置荣誉证书部分的网格布局 */
 .awards-container {
   margin-top: 40px; /* 与上方内容的间距 */
-  display: flex;
+  display: grid;
   justify-content: center; /* 水平居中对齐 */
   gap: 30px; /* 设置图片之间的间距 */
   flex-wrap: wrap; /* 当空间不足时自动换行 */
   padding: 20px; /* 增加内边距 */
   animation: fadeIn 1.5s ease-out forwards; /* 为整个容器添加淡入效果 */
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* 单个奖项图片样式 */
@@ -81,6 +76,7 @@ body, h1, h2, h3, p, a {
   flex: 1 1 200px; /* 弹性布局，最小宽度200px */
   margin: 10px; /* 图片之间的间距 */
   animation: fadeIn 1s ease-out forwards; /* 为每个奖项图片添加淡入效果 */
+  text-align: center;
 }
 
 /* 奖项图片的样式和悬停效果 */
@@ -140,14 +136,16 @@ body, h1, h2, h3, p, a {
   background-color: #218838; /* 悬停时的背景颜色 */
 }
 
-/* 关于我们部分文本样式 */
-/* 设置关于我们部分的段落文本样式 */
-#about p, #brands h3, #brands p {
-  font-size: 1.2em; /* 设置段落字体大小 */
-  line-height: 1.6; /* 设置段落行高 */
-  margin-bottom: 20px; /* 设置段落之间的间距 */
-  text-align: center; /* 段落居中对齐 */
+/* 初始化段落内容为透明 */
+#about p {
+  font-size: 1.1em;
+  line-height: 2.5;
+  text-align: center;
+  margin-bottom: 70px;
+  display: inline-block;
+  animation: typing 0.5s ease forwards;
 }
+
 
 /* 全局调整段落和文字的默认间距 */
 p {
@@ -186,8 +184,8 @@ p {
 
 /* 悬停时反转并平滑动画 */
 .flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg) scale(0.4); /* 悬停时反转 */
-  transition: transform 0.8s ease-in-out; /* 平滑的翻转效果 */
+  transform: rotateY(180deg) scale(0.55); /* 悬停时反转 */
+  transition: transform 0.8s ease-in-out; /* 平滑的翻转效果 */ 
 }
 
 /* 卡片的正反面样式 */
@@ -221,4 +219,109 @@ p {
   font-size: 1.1em;
   line-height: 1.6;
   animation: fadeIn 0.6s ease forwards; /* 悬停时文字淡入 */
+}
+
+/* Container for all info cards */
+.info-card-container {
+  display: flex;
+  justify-content: space-between; /* Distribute the cards evenly */
+  flex-wrap: wrap;                /* Ensure cards wrap if space runs out */
+  gap: 15px;                      /* Set consistent space between cards */
+  padding: 20px;
+  align-items: flex-start;         /* Align cards to the top */
+}
+
+/* General info-card styling */
+.info-card1, .info-card2, .info-card3 {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px;
+  width: 250px;  /* Fixed width for all cards */
+  height: 400px; /* Fixed height for all cards */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect */
+  margin: 0; /* Remove default margins */
+  opacity: 0; /* Initially hidden */
+  transform: translateY(50px); /* Start with slight offset */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transition for fade and move */
+  position: relative;
+}
+
+
+/* When the card becomes visible */
+.info-card1.show, .info-card2.show, .info-card3.show {
+  opacity: 1;
+  transform: translateY(0); /* Bring the card to its normal position */
+}
+
+/* Individual card text and image adjustments */
+.info-card1 p, .info-card2 p, .info-card3 p {
+  font-size: 17px; /* Consistent font size */
+  font-weight: bold;
+  line-height: 2.0; /* Line height adjustment for readability */
+  background: linear-gradient(90deg, #1f3a93, #ff6347); /* Gradient colors */
+  background-clip: text; /* Clips the background to text */
+  -webkit-background-clip: text; /* For webkit browsers */
+  color: transparent; /* Transparent color to allow gradient to show */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adding a subtle text shadow */
+  margin-bottom: 20px;
+}
+
+/* Ensure spacing between images and size consistency */
+.info-card1 img, .info-card2 img, .info-card3 img {
+  margin-right: 50px;  /* Right margin for space between images */
+  margin-bottom: 10px; /* Bottom margin for vertical spacing */
+  width: 60px;         /* Adjust image width */
+  height: auto;        /* Keep aspect ratio */
+}
+
+/* 确保图片在卡片的底部 */
+.image-container {
+  position: absolute;
+  bottom: 10px; /* 控制图片距卡片底部的距离 */
+  left: 50%;
+  transform: translateX(-50%); /* 确保图片在卡片底部居中对齐 */
+  display: flex;
+  justify-content: center; /* 居中对齐图片 */
+  gap: 15px; /* 确保图片之间有间距 */
+}
+
+/* Responsive adjustments for different screen sizes */
+@media (max-width: 768px) {
+  .info-card1, .info-card2, .info-card3 {
+    flex: 1 1 100%; /* Stack cards on smaller screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .info-card1, .info-card2, .info-card3 {
+    flex: 1 1 30%; /* Allow cards to occupy about 30% of the available width on larger screens */
+  }
+}
+
+/* 初始化淡入动画 */
+.fade-in-award {
+  opacity: 0;
+  transform: translateY(50px); /* 初始位置下移 */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* 滚动到可见时激活淡入效果 */
+.fade-in-award.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 为不同的证书设置不同的动画延迟 */
+.awards-flip-container .flip-card:nth-child(1) {
+  transition-delay: 0.6s;
+}
+
+.awards-flip-container .flip-card:nth-child(2) {
+  transition-delay: 0.7s;
+}
+
+.awards-flip-container .flip-card:nth-child(3) {
+  transition-delay: 0.8s;
 }

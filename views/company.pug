@@ -2,63 +2,133 @@ extends layout
 
 block styles
   link(rel="stylesheet" href="/css/company.css")
+  link(rel="stylesheet" href="/css/style.css")
 
 block content
+  //- 第一部分：解读三文鱼页面内容
+  section#title-section
+    h1 ----Explore the World of Salmon-----
+    h2 深入解析三文鱼的奥秘
+    p ----Pioneering Excellence in Ocean Trade----
+
+  section#content-section
+    div#video-description-container
+      div#video-container
+        //- 使用滑动logo替换video
+        div#logo-slider-container
+          div#slider
+            div.slide
+              img(src="/image/FengSalmon.png" alt="Logo 1")
+            div.slide
+              img(src="/image/WholeSalmon.png" alt="Logo 2")
+            div.slide
+              img(src="/image/FengSalmon.png" alt="Logo 3")
+            div.slide
+              img(src="/image/WholeSalmon.png" alt="Logo 4")
+            div.slide
+              img(src="/image/FengSalmon.png" alt="Logo 1")
+            div.slide
+              img(src="/image/WholeSalmon.png" alt="Logo 2")
+            div.slide
+              img(src="/image/FengSalmon.png" alt="Logo 3")
+            div.slide
+              img(src="/image/WholeSalmon.png" alt="Logo 4")
+
+      div#description-feature-container
+        section.description
+          p.fade-in-text 三文鱼是深海冷水养殖的，一般生存在南极或北极的海域
+          p.fade-in-text 海水非常洁净，流动的海水带来丰富的天然食物
+          p.fade-in-text 三文鱼的品质和营养价值都是在各类海水鱼中超级优秀的
+
+        section#features-section
+          p.fade-in-text 我们的三文鱼是智利纯正的大西洋鲑鱼。
+          p.fade-in-text 捕捞后即活杀急冻，全程在-18°C以下环境中, 最大程度锁住鲜味
+          p.fade-in-text 我们是国内优质顶级三文鱼供货商，国外直采，自营进口，价格优惠
+
+          div.features
+            div.feature-item.fade-in-text
+              img.feature-icon.fade-in-text(src="https://img.icons8.com/ios-filled/100/000000/fish.png" alt="智利大西洋鲑鱼")
+              p.fade-in-text 智利纯正大西洋鲑鱼
+            div.feature-item
+              img.feature-icon.fade-in-text(src="https://img.icons8.com/ios-filled/100/000000/snowflake.png" alt="-18°C 保存")
+              p.fade-in-text -18°C以下环境保存最大程度锁住鲜味
+            div.feature-item
+              img.feature-icon.fade-in-text(src="https://img.icons8.com/ios-filled/100/000000/box.png" alt="优质供货商")
+              p.fade-in-text 优质顶级三文鱼供货商
+
+  //- 第二部分：公司简介和荣誉证书内容
   section#company-section
     h1 ----COMPANY PROFILE----
     h2 公司简介
     p ----OCEAN COMMERCE----
 
-    section#about
-      p 深圳市前海大洋商贸有限公司为香港大洋全资子公司，有着丰富优质的海产品资源及内外销网络，覆盖全球。
-      p 我司拥有多年的全球采购经验及开发团队，注重品质和食品安全，在内销业提供优质价格产品上级供应优势。
-      p 本着“服务至上”的宗旨，致力于为合作伙伴提供更多优质产品和最新资讯。
+  section#about
+    div
+      p.fade-in-text 深圳市前海大洋商贸有限公司为香港大洋全资子公司，有着丰富优质的海产品资源及内外销网络，覆盖全球。我司拥有多年的全球采购经验及开发团队，注重品质和食品安全，在内销业提供优质价格产品上级供应优势。本着“服务至上”的宗旨，致力于为合作伙伴提供更多优质产品和最新资讯。
 
     section#awards
       h3 荣誉证书
       div.awards-flip-container
-        div.flip-card
+        div.flip-card.fade-in-award
           div.flip-card-inner
             div.flip-card-front
-              img(src="/image/award1_front.png" alt="Award Front 1")
+              img(src="/image/award1_back.png" alt="Award Front 1")
             div.flip-card-back
               img(src="/image/award1_back.png" alt="Award Back 1")
-        div.flip-card
+        div.flip-card.fade-in-award
           div.flip-card-inner
             div.flip-card-front
-              img(src="/image/award2_front.png" alt="Award Front 2")
+              img(src="/image/award2_back.png" alt="Award Front 2")
             div.flip-card-back
               img(src="/image/award2_back.png" alt="Award Back 2")
-        div.flip-card
+        div.flip-card.fade-in-award
           div.flip-card-inner
             div.flip-card-front
-              img(src="/image/award3_front.png" alt="Award Front 3")
+              img(src="/image/award3_back.png" alt="Award Front 3")
             div.flip-card-back
               img(src="/image/award3_back.png" alt="Award Back 3")
-        div.flip-card
+        div.flip-card.fade-in-award
           div.flip-card-inner
             div.flip-card-front
-              img(src="/image/award4_front.png" alt="Award Front 4")
+              img(src="/image/award4_back.png" alt="Award Front 4")
             div.flip-card-back
               img(src="/image/award4_back.png" alt="Award Back 4")
-        div.flip-card
+        div.flip-card.fade-in-award
           div.flip-card-inner
             div.flip-card-front
-              img(src="/image/award5_front.png" alt="Award Front 5")
+              img(src="/image/award5_back.png" alt="Award Front 5")
             div.flip-card-back
               img(src="/image/award5_back.png" alt="Award Back 5")
-        div.flip-card
+        div.flip-card.fade-in-award
           div.flip-card-inner
             div.flip-card-front
-              img(src="/image/award6_front.png" alt="Award Front 6")
+              img(src="/image/award6_back.png" alt="Award Front 6")
             div.flip-card-back
               img(src="/image/award6_back.png" alt="Award Back 6")
 
-    section#brands
-      h3 我们的品牌
+  section#brands
+  div.info-card-container
+    div.info-card1
       p 公司现已有“鲑鱼世家”、“三文鱼世家”、“一条三文鱼”、“好鲜大洋”等自主品牌，是中国水产流通与加工协会生鲜供应链分会副会长单位，产品销售全国。
+      div.image-container
+      img(src="image/GuiYu.png" alt="Product Image")
+      img(src="image/Pacific.png" alt="Product Image")
+      img(src="image/Logo.png" alt="Product Image")  
+    div.info-card2
       p 其中尤以三文鱼，鳗鱼系列产品为最，除了原料更在深加工，调制和净菜类，丸滑类深入研发和推广。
-      p 如：香煎鱼排，酱料鱼柳，烟熏制品，鱼丸鱼滑休闲食品类，蒲烧系列，火锅切片等。
-      p 我们的产品从源头到终端，全程把控，每个环节都直接参与，最大程度地保证产品质量和供应。
-      p 与各类商家如餐饮，超市，电商平台，微商，社区团购等皆有合作。
-      p 大洋商贸欢迎您咨询洽谈，联手合作，互惠共赢！
+      div.image-container
+      img(src="image/GuiYu.png" alt="Product Image")
+      img(src="image/Pacific.png" alt="Product Image")
+      img(src="image/Logo.png" alt="Product Image")
+    div.info-card3
+      p 我们的产品从源头到终端，全程把控，每个环节都直接参与，最大程度地保证产品质量和供应。大洋商贸欢迎您咨询洽谈，联手合作，互惠共赢！
+      div.image-container
+      img(src="image/GuiYu.png" alt="Product Image")
+      img(src="image/Pacific.png" alt="Product Image")
+      img(src="image/Logo.png" alt="Product Image")
+
+
+  //- 加载响应式脚本
+  script(src="/js/responsivepage.js")
+  script(src="/js/company.js")
+

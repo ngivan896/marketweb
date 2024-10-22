@@ -1,15 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // 菜单显示/隐藏功能
-  var menuIcon = document.getElementById('menu-icon');
-  var menu = document.getElementById('menulist');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
 
-  if (menuIcon && menu) {
-    menuIcon.addEventListener('click', function () {
-      if (menu.style.display === 'none' || menu.style.display === '') {
-        menu.style.display = 'block';
-      } else {
-        menu.style.display = 'none';
-      }
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
+      navLinks.classList.toggle('active'); // Toggle the active class to show/hide nav links
     });
   }
 
@@ -44,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         hoverTimer = setTimeout(() => {
           img.style.transform = 'scale(1.5)'; // 鼠标悬停2秒后放大图片
           slider.style.animationPlayState = 'paused'; // 同时暂停滑动
-        }, 1500); // 鼠标悬停2秒后放大和暂停
+        }, 1000); // 鼠标悬停2秒后放大和暂停
       });
 
       img.addEventListener('mouseleave', () => {
@@ -55,3 +50,58 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const fadeInElements = document.querySelectorAll('.fade-in-text');
+  const titleSection = document.querySelector('#title-section');
+
+  // 创建一个 IntersectionObserver
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && window.scrollY > titleSection.offsetTop) {
+        // 只有当用户从上往下滚动超过 title-section 时才触发
+        entry.target.classList.add('visible');
+      } 
+    });
+  }, { threshold: 0.1 }); // 当元素进入 10% 时触发
+
+  // 监听每个 fade-in 元素
+  fadeInElements.forEach((el) => {
+    observer.observe(el);
+  });
+  function checkVisibility() {
+    fadeInElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+
+      if (rect.top <= windowHeight && rect.bottom >= 0) {
+        el.classList.add('visible');
+        el.classList.remove('hidden');
+      } else {
+        el.classList.remove('visible');
+        el.classList.add('hidden');
+      }
+    });
+  }
+
+  // 监听滚动事件
+  window.addEventListener('scroll', checkVisibility);
+
+  // 页面加载时立即检查一次可见性
+  checkVisibility();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const aboutLink = document.querySelector('a[href="#company-section"]');
+  const companySection = document.querySelector('#company-section');
+
+  if (aboutLink && companySection) {
+    aboutLink.addEventListener('click', function (event) {
+      event.preventDefault(); // 阻止默认的跳转行为
+      companySection.scrollIntoView({ behavior: 'smooth' }); // 平滑滚动到目标位置
+    });
+  }
+});
+
+
+

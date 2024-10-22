@@ -1,55 +1,11 @@
-extends layout
+doctype html
+html
+  head
+    title Dynamic Company Name
+    link(rel="stylesheet" href="/css/index.css")
+    
+  body
+    div#app
+    script(src="/index.bundle.js")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-block content
-  section#title-section
-    h1 ----INTERPRETING SALMON-----
-    h2 解读三文鱼
-    p ----OCEAN COMMERCE----
-
-  section#content-section
-    div#video-description-container
-      div#video-container
-        //- 将video部分替换为滑动logo设计，保持video container的原有大小
-        div#logo-slider-container
-          div#slider
-            div.slide
-              img(src="/image/FengSalmon.png" alt="Logo 1")
-            div.slide
-              img(src="/image/WholeSalmon.png" alt="Logo 2")
-            div.slide
-              img(src="/image/FengSalmon.png" alt="Logo 3")
-            div.slide
-              img(src="/image/WholeSalmon.png" alt="Logo 4")
-            //- 使Logo无缝滑动
-            div.slide
-              img(src="/image/FengSalmon.png" alt="Logo 1")
-            div.slide
-              img(src="/image/WholeSalmon.png" alt="Logo 2")
-            div.slide
-              img(src="/image/FengSalmon.png" alt="Logo 3")
-            div.slide
-              img(src="/image/WholeSalmon.png" alt="Logo 4")
-
-      div#description-feature-container
-        section.description
-          p 三文鱼是深海冷水养殖的，一般生存在南极或北极的海域
-          p 海水非常洁净，流动的海水带来丰富的天然食物
-          p 三文鱼的品质和营养价值都是在各类海水鱼中超级优秀的
-
-        section#features-section
-          h3 我们的三文鱼是智利纯正的大西洋鲑鱼
-          p 捕捞后即活杀急冻，全程在-18°C以下环境中，最大程度锁住鲜味
-          p 我们是国内优质顶级三文鱼供货商，国外直采，自营进口，价格优惠
-
-          div.features
-            div.feature-item
-              img.feature-icon(src="https://img.icons8.com/ios-filled/100/000000/fish.png" alt="智利大西洋鲑鱼")
-              p 智利纯正大西洋鲑鱼
-            div.feature-item
-              img.feature-icon(src="https://img.icons8.com/ios-filled/100/000000/snowflake.png" alt="-18°C 保存")
-              p -18°C以下环境保存最大程度锁住鲜味
-            div.feature-item
-              img.feature-icon(src="https://img.icons8.com/ios-filled/100/000000/box.png" alt="优质供货商")
-              p 优质顶级三文鱼供货商
-
-  script(src="/js/responsivepage.js")
