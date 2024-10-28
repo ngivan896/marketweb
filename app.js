@@ -24,6 +24,11 @@ app.get('/', (req, res) => {
     res.render('index', { title: '大洋商贸' });
 });
 
+app.get('/product', (req, res) => {
+  res.render('product', { title: 'Product Page' });
+});
+
+
 app.get('/company', (req, res) => {
   console.log("Company page requested");
   res.render('company', { title: 'Company Overview' });

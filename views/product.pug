@@ -1,0 +1,56 @@
+extends layout
+
+block styles
+  link(rel="stylesheet" href="/css/product.css")
+
+block content
+  .main-container
+    h1 Product List
+
+    //- Long scrollable background container
+    .background-container
+      //- Individual product zones
+      each product, index in ["Product 1", "Product 2", "Product 3", "Product 4"]
+        .product-zone(id=`zone-${index + 1}`)
+          .product-item
+            .image-container
+              img(src="/image/product.png", alt=product) 
+              h2= product
+              p Description for #{product}
+
+  //- Infrared remote control handling script
+  script.
+    let currentZone = 0;
+    const zones = document.querySelectorAll('.product-zone');
+
+    // JavaScript for handling infrared remote control input
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'PageUp' || event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+        navigateUp();
+      } else if (event.key === 'PageDown' || event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+        navigateDown();
+      }
+    });
+
+    function navigateUp() {
+      if (currentZone === 0) {
+        // At the top, go back to the home page
+        window.location.href = '/';
+      } else {
+        // Move to the previous zone
+        currentZone--;
+        scrollToZone(currentZone);
+      }
+    }
+
+    function navigateDown() {
+      if (currentZone < zones.length - 1) {
+        // Move to the next zone
+        currentZone++;
+        scrollToZone(currentZone);
+      }
+    }
+
+    function scrollToZone(zoneIndex) {
+      zones[zoneIndex].scrollIntoView({ behavior: 'smooth' });
+    }

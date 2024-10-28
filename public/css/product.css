@@ -1,0 +1,39 @@
+.main-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .background-container {
+    position: relative;
+    height: 100vh; /* Set to full viewport height for each section */
+    overflow-y: hidden;
+  }
+  
+  .product-zone {
+    min-height: 100vh; /* Each zone fills the viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .product-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background: #fff;
+    text-align: center;
+    width: 60%;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .text-container {
+    margin-top: 10px;
+  }
+  
